@@ -18,12 +18,14 @@ func _ready():
 	# functions such as spawn_obj() which is used for spawning bullets from player scene
 	ManagerGame.global_world_ref = self
 	
+	ManagerGame.enemy_killed.connect(on_enemy_killed)
+	
 	$CanvasLayer/UI.set_hud()
 	$CanvasLayer/UI.refresh_hud()
 
 
 func _physics_process(delta):
-	$ParallaxBackground.scroll_offset.y += delta * 60
+	$ParallaxBackground.scroll_offset.y += delta * 80
 
 
 func cam_shake():
@@ -34,7 +36,16 @@ func cam_shake():
 # instance - the object instantiated via instantiate() function
 func spawn_obj(instance, g_pos):
 	instance.global_position = g_pos
-	sort.add_child(instance)
+	sort.call_deferred('add_child', instance)
+
+
+func drop_powerup(g_pos):
+	var rand = randf()
+	var types = ManagerGame.POWERUP_TYPE.values()
+	types.shuffle()
+	
+	var powerup = load("res://actors/objs/Powerup.tscn").instantiate()
+	spawn_obj(powerup, g_pos)
 
 
 func get_random_pos():
@@ -60,6 +71,9 @@ func get_random_group():
 	
 	return groups[0]
 
+
+func on_enemy_killed(g_pos):
+	drop_powerup(g_pos)
 
 
 func _on_enemy_spawner_timeout():

@@ -29,7 +29,7 @@ func set_hud():
 	$Score.text = '%s' % ManagerGame.global_world_ref.score
 
 
-func on_enemy_killed():
+func on_enemy_killed(g_pos):
 	$Score.text = '%s' % ManagerGame.global_world_ref.score
 
 
