@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7tdrbmxivwl3"]
+[gd_scene load_steps=5 format=3 uid="uid://c7tdrbmxivwl3"]
 
 [ext_resource type="Texture2D" uid="uid://bdgs28v07aub8" path="res://assets/Spaceships/Spaceship 1/spaceship1-1.png" id="1_ck13e"]
 [ext_resource type="Script" path="res://actors/entities/Player.gd" id="1_slpm2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u4hn2"]
 radius = 7.07107
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mqi2n"]
+radius = 6.08276
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_slpm2")
@@ -14,3 +17,13 @@ texture = ExtResource("1_ck13e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_u4hn2")
+
+[node name="PlayerHurtbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 16
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtbox"]
+shape = SubResource("CircleShape2D_mqi2n")
+
+[connection signal="area_entered" from="PlayerHurtbox" to="." method="_on_player_hurtbox_area_entered"]
