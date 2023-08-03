@@ -1,23 +1,33 @@
 extends Node2D
 
 
-var hp = 1
-var speed = 50.0
+@export_enum('TARGET', 'LINEAR') var move_type
+
+@export var hp = 1
+@export var speed = 50.0
 var towards
 
 
+
 func _physics_process(delta):
-	look_at(ManagerGame.global_player_ref.global_position)
-	
-	if towards == Vector2.ZERO:
+	if global_position.y > 200:
+		queue_free()
 		return
 	
-	if global_position.distance_to(towards) < 0.5:
-		towards = Vector2.ZERO
-	
-	var dif = global_position.direction_to(towards)
-	
-	global_position += dif * speed * delta
+	if move_type == 0:
+		look_at(ManagerGame.global_player_ref.global_position)
+		
+		if towards == Vector2.ZERO:
+			return
+		
+		if global_position.distance_to(towards) < 0.5:
+			towards = Vector2.ZERO
+		
+		var dif = global_position.direction_to(towards)
+		
+		global_position += dif * speed * delta
+	else:
+		global_position += towards * speed * delta
 
 
 
@@ -32,6 +42,8 @@ func _on_timer_timeout():
 
 
 func _on_enemy_hurtbox_area_entered(area):
+	area.get_parent().queue_free()
+	
 	hp -= 1
 	
 	var ex = load("res://actors/objs/Explosion.tscn").instantiate()

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://2ubc780sisgt"]
+
+[node name="Group" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(-19, 0)
+
+[node name="Node2D3" type="Node2D" parent="."]
+position = Vector2(19, 0)
+
+[node name="Node2D4" type="Node2D" parent="."]
+position = Vector2(0, -20)
+
+[node name="Node2D5" type="Node2D" parent="."]
+position = Vector2(0, 22)

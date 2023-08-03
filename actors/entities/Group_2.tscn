@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cx12q2odkriqj"]
+
+[node name="Group" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(-19, 0)
+
+[node name="Node2D3" type="Node2D" parent="."]
+position = Vector2(19, 0)

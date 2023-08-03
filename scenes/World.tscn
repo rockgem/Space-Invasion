@@ -19,7 +19,6 @@ z_index = 1
 position = Vector2(183, 144)
 
 [node name="EnemySpawner" type="Timer" parent="."]
-autostart = true
 
 [node name="WaveTimer" type="Timer" parent="."]
 wait_time = 5.0
@@ -32,10 +31,10 @@ position = Vector2(10, 10)
 position = Vector2(366, 171)
 
 [node name="SpawnPoint" type="Node2D" parent="."]
-position = Vector2(13, -20)
+position = Vector2(50, -35)
 
 [node name="SpawnPoint2" type="Node2D" parent="."]
-position = Vector2(368, -20)
+position = Vector2(331, -35)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(191, 185)
@@ -64,3 +63,4 @@ position = Vector2(190, -4)
 shape = SubResource("RectangleShape2D_4sg67")
 
 [connection signal="timeout" from="EnemySpawner" to="." method="_on_enemy_spawner_timeout"]
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
