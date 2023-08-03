@@ -41,11 +41,14 @@ func spawn_obj(instance, g_pos):
 
 func drop_powerup(g_pos):
 	var rand = randf()
-	var types = ManagerGame.POWERUP_TYPE.values()
-	types.shuffle()
 	
-	var powerup = load("res://actors/objs/Powerup.tscn").instantiate()
-	spawn_obj(powerup, g_pos)
+	if rand > .7:
+		var types = ManagerGame.POWERUP_TYPE.values()
+		types.shuffle()
+		
+		var powerup = load("res://actors/objs/Powerup.tscn").instantiate()
+		powerup.power_type = types[0]
+		spawn_obj(powerup, g_pos)
 
 
 func get_random_pos():
