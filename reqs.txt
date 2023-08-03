@@ -1,0 +1,14 @@
+1. starting screen with button to begin game
+2. cutscene happens (text that says mission # slides down the screen)
+3. character sprite appears (doesn't need art yet) and has 5 health points, and 3 lives until game over
+4. sprite moves forward, backward, right and left with wasd
+5. sprite shoots full auto when holding space bar
+6. enemy sprites shoot either down towards the bottom of the screen, or at the player, or random
+7. enemy sprites are destroyed after one shot
+8. harder enemy sprites are destroyed after (x) shots, and can also shoot in different patterns ( you can just copy the patterns of the original enemy sprites if you wish)
+9. enemy sprites slowly move downwards, and a background also moves downwards giving the effect the player is moving forwards.
+10. destroyed enemys grant points
+11. if possible could you script enemy drop randomization, 70% drop nothing 10% drop extra lives 10% drop health regens and 10% drop weapon upgrades
+12. weapon upgrades would either increase the rpm of your firing, or increase the area in which the bullets cover. So normally you would shoot 2 bullets in the front per cycle, you would now shoot 4 similar to 1944
+13. main boss that when killed you move to next level (6 levels in total)
+14. thanks and if this is too much or not enough info lemme know!
