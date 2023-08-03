@@ -24,7 +24,8 @@ func process_powerup(type: int):
 			
 			player_hit.emit()
 		POWERUP_TYPE.ATTACK:
-			pass
+			global_player_ref.weapon_level += 1
+			global_player_ref.change_weapon('Weapon_%s' % global_player_ref.weapon_level)
 		POWERUP_TYPE.LIFE:
 			global_player_ref.life = clamp(global_player_ref.life + 1, 0, 3)
 			

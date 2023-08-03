@@ -1,15 +1,12 @@
 extends CharacterBody2D
 
-var bullet = load("res://actors/objs/PlayerBullet.tscn")
-
-
 var vel = Vector2.ZERO
 var move_speed = 100.0
 var hp = 5
 var life = 3
 
-var fire_rate = 0.2
-var tick = 0.0
+
+var weapon_level = 1
 
 
 func _ready():
@@ -24,16 +21,15 @@ func _physics_process(delta):
 	velocity = vel * move_speed
 	
 	move_and_slide()
+
+
+func change_weapon(weapon_id):
+	for child in $WeaponHolder.get_children():
+		child.queue_free()
 	
-	# shooting mechanics
-	if Input.is_action_pressed("shoot"):
-		tick += delta
-		if tick >= fire_rate:
-			var i = bullet.instantiate()
-			i.dir = Vector2.UP
-			ManagerGame.global_world_ref.spawn_obj(i, global_position)
-			
-			tick = 0.0
+	var weapon = load("res://actors/etc/%s.tscn" % weapon_id).instantiate()
+	
+	$WeaponHolder.add_child(weapon)
 
 
 func _on_player_hurtbox_area_entered(area):

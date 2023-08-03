@@ -7,6 +7,21 @@
 [ext_resource type="Texture2D" uid="uid://bw1v327tosy8" path="res://assets/Backgrounds/stars_2.png" id="4_fdujd"]
 [ext_resource type="PackedScene" uid="uid://dtesmf7et4c1g" path="res://scenes/UI.tscn" id="5_750vh"]
 
+[sub_resource type="Animation" id="Animation_ecpao"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(190, 90)]
+}
+
 [sub_resource type="Animation" id="Animation_ck7ci"]
 resource_name = "shake"
 length = 0.4
@@ -21,21 +36,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(190, 90), Vector2(193, 88), Vector2(187, 92), Vector2(185, 87), Vector2(190, 90)]
-}
-
-[sub_resource type="Animation" id="Animation_ecpao"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(190, 90)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jelqd"]
