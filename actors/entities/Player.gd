@@ -24,12 +24,13 @@ func _physics_process(delta):
 
 
 func change_weapon(weapon_id):
-	for child in $WeaponHolder.get_children():
-		child.queue_free()
-	
 	var weapon = load("res://actors/etc/%s.tscn" % weapon_id).instantiate()
 	
-	$WeaponHolder.add_child(weapon)
+	if weapon:
+		for child in $WeaponHolder.get_children():
+			child.queue_free()
+		
+		$WeaponHolder.add_child(weapon)
 
 
 func _on_player_hurtbox_area_entered(area):

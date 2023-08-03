@@ -39,6 +39,11 @@ func spawn_obj(instance, g_pos):
 	sort.call_deferred('add_child', instance)
 
 
+func spawn_boss(instance, g_pos):
+	instance.global_position = g_pos
+	sort.call_deferred('add_child', instance)
+
+
 func drop_powerup(g_pos):
 	var rand = randf()
 	
@@ -106,4 +111,9 @@ func _on_wave_timer_timeout():
 	wave += 1
 	
 	if wave > wave_max:
-		pass
+		$WaveTimer.stop()
+		$EnemySpawner.start()
+		
+		var boss = load("res://actors/entities/Boss_1.tscn").instantiate()
+		boss.towards = get_random_pos()
+		spawn_obj(boss, get_random_spawn_point())
