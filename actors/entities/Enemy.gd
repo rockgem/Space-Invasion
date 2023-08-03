@@ -50,4 +50,8 @@ func _on_enemy_hurtbox_area_entered(area):
 	ManagerGame.global_world_ref.spawn_obj(ex, global_position)
 	
 	if hp <= 0:
+		var df = load("res://actors/objs/DamageFloater.tscn").instantiate()
+		df.get_node('Label').text = '5'
+		ManagerGame.global_world_ref.spawn_obj(df, global_position)
+		
 		queue_free()

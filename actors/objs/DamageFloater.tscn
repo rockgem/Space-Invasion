@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgdu3yosbl47g"]
+
+[ext_resource type="Script" path="res://actors/objs/DamageFloater.gd" id="1_6xao1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dqcea"]
+font_size = 8
+
+[node name="DamageFloater" type="Node2D"]
+script = ExtResource("1_6xao1")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 15.0
+text = "99"
+label_settings = SubResource("LabelSettings_dqcea")
+horizontal_alignment = 1

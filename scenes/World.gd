@@ -8,11 +8,17 @@ var groups = [
 	load("res://actors/entities/Group_2.tscn"),
 ]
 
+var wave = 1
+var wave_max = 10
 
 func _ready():
 	# reference this world globally so we can access the functions anywhere
 	# functions such as spawn_obj() which is used for spawning bullets from player scene
 	ManagerGame.global_world_ref = self
+
+
+func _physics_process(delta):
+	$ParallaxBackground.scroll_offset.y += delta * 50
 
 
 # g_pos - global_position
@@ -70,3 +76,8 @@ func _on_wave_timer_timeout():
 		$EnemySpawner.start()
 	else:
 		$EnemySpawner.stop()
+	
+	wave += 1
+	
+	if wave > wave_max:
+		pass
