@@ -15,10 +15,17 @@ func _ready():
 	# reference this world globally so we can access the functions anywhere
 	# functions such as spawn_obj() which is used for spawning bullets from player scene
 	ManagerGame.global_world_ref = self
+	
+	$CanvasLayer/UI.set_hud()
+	$CanvasLayer/UI.refresh_hud()
 
 
 func _physics_process(delta):
-	$ParallaxBackground.scroll_offset.y += delta * 50
+	$ParallaxBackground.scroll_offset.y += delta * 60
+
+
+func cam_shake():
+	$AnimationPlayer.play("shake")
 
 
 # g_pos - global_position

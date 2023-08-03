@@ -37,6 +37,15 @@ func _physics_process(delta):
 
 
 func _on_player_hurtbox_area_entered(area):
+	area.get_parent().queue_free()
+	
 	hp -= 1
 	
+	if hp <= 0:
+		life -= 1
+		
+		hp = 5
+	
 	ManagerGame.player_hit.emit()
+	ManagerGame.global_world_ref.cam_shake()
+	
