@@ -54,4 +54,7 @@ func _on_enemy_hurtbox_area_entered(area):
 		df.get_node('Label').text = '5'
 		ManagerGame.global_world_ref.spawn_obj(df, global_position)
 		
+		ManagerGame.global_world_ref.score += 5
+		ManagerGame.enemy_killed.emit()
+		
 		queue_free()

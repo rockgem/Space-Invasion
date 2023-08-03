@@ -4,9 +4,11 @@ extends Control
 
 func _ready():
 	ManagerGame.player_hit.connect(on_player_hit)
+	ManagerGame.enemy_killed.connect(on_enemy_killed)
 
 
 func refresh_hud():
+	$Score.text = '%s' % ManagerGame.global_world_ref.score
 	$HP.value = ManagerGame.global_player_ref.hp
 	
 	for child in $HeartsBox.get_children():
@@ -23,6 +25,12 @@ func refresh_hud():
 func set_hud():
 	$HP.max_value = ManagerGame.global_player_ref.hp
 	$HP.value = ManagerGame.global_player_ref.hp
+	
+	$Score.text = '%s' % ManagerGame.global_world_ref.score
+
+
+func on_enemy_killed():
+	$Score.text = '%s' % ManagerGame.global_world_ref.score
 
 
 func on_player_hit():

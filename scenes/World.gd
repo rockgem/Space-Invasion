@@ -11,6 +11,8 @@ var groups = [
 var wave = 1
 var wave_max = 10
 
+var score = 0
+
 func _ready():
 	# reference this world globally so we can access the functions anywhere
 	# functions such as spawn_obj() which is used for spawning bullets from player scene
