@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7tdrbmxivwl3"]
+
+[ext_resource type="Texture2D" uid="uid://bdgs28v07aub8" path="res://assets/Spaceships/Spaceship 1/spaceship1-1.png" id="1_ck13e"]
+[ext_resource type="Script" path="res://actors/entities/Player.gd" id="1_slpm2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u4hn2"]
+radius = 7.07107
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_slpm2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ck13e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_u4hn2")
