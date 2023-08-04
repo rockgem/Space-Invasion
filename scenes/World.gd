@@ -121,7 +121,7 @@ func _on_wave_timer_timeout():
 	
 	if wave > wave_max:
 		$WaveTimer.stop()
-		$EnemySpawner.start()
+		$EnemySpawner.stop()
 		
 		var boss = load("res://actors/entities/Boss_1.tscn").instantiate()
 		spawn_obj(boss, $BossSpawnPoint.global_position)

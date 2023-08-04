@@ -18,7 +18,7 @@ func _physics_process(delta):
 		
 		parent.global_position += dif * move_speed * delta
 		
-		if parent.global_position.distance_to(target) < 0.5:
+		if parent.global_position.distance_to(target) < 1.0:
 			target = Vector2.ZERO
 
 
