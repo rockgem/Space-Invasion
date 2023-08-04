@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://biuccuyxq1j5h"]
+
+[ext_resource type="AudioStream" uid="uid://binq81yvwdnr5" path="res://sounds/sfx/AlienWeapon4.wav" id="1_rgj6d"]
+
+[node name="SFX" type="Node"]
+
+[node name="Laser" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_rgj6d")

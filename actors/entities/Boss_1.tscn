@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://actors/entities/Boss_1.gd" id="1_w3edy"]
 [ext_resource type="Texture2D" uid="uid://dlxan7igsthki" path="res://assets/Spaceships/Spaceship 9/spaceship9-1.png" id="2_pin17"]
 [ext_resource type="PackedScene" uid="uid://d274pm1d204py" path="res://actors/components/BossMovementComponent.tscn" id="3_eqsdb"]
-[ext_resource type="PackedScene" uid="uid://bbtxidabe2apu" path="res://actors/components/AimedScatterShot.tscn" id="4_oceld"]
+[ext_resource type="PackedScene" uid="uid://c7ej41gpmpftb" path="res://actors/components/RoundShotComponent.tscn" id="4_nvlxf"]
 [ext_resource type="PackedScene" uid="uid://bnpom7finwgte" path="res://actors/components/HurtBoxComponent.tscn" id="5_fj8tw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bkwyv"]
@@ -20,8 +20,8 @@ texture = ExtResource("2_pin17")
 [node name="BossMovementComponent" parent="." instance=ExtResource("3_eqsdb")]
 move_speed = 80.0
 
-[node name="AimedScatterShotComponent" parent="." instance=ExtResource("4_oceld")]
-fire_rate = 1.0
+[node name="RoundShotComponent" parent="." instance=ExtResource("4_nvlxf")]
+fire_rate = 2.0
 
 [node name="HurtBoxComponent" parent="." instance=ExtResource("5_fj8tw")]
 collision_layer = 4

@@ -9,6 +9,7 @@ func _ready():
 
 
 func shoot():
+	Sfx.get_node("Laser").play()
 	for pos in get_children():
 		var i = bullet.instantiate()
 		i.dir = Vector2.UP
