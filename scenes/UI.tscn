@@ -120,4 +120,59 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Menu"
 
+[node name="GameWinControl" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GameWinControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.337255)
+
+[node name="Panel" type="Panel" parent="GameWinControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 127.0
+offset_top = 38.0
+offset_right = -126.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_ggi78")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameWinControl/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="GameWinControl/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Mission Complete!"
+label_settings = SubResource("LabelSettings_eq5iu")
+horizontal_alignment = 1
+
+[node name="Menu" type="Button" parent="GameWinControl/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Menu"
+
 [connection signal="pressed" from="GameOverControl/Panel/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="GameWinControl/Panel/VBoxContainer/Menu" to="." method="_on_menu_pressed"]

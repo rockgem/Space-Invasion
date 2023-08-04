@@ -36,7 +36,13 @@ func on_enemy_killed(g_pos):
 
 
 func on_boss_killed():
-	pass
+	var t = get_tree().create_timer(2.0)
+	
+	await t.timeout
+	
+	get_tree().paused = true
+	
+	$GameWinControl.show()
 
 
 func on_player_hit():
