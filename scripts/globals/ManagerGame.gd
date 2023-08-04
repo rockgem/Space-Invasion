@@ -3,6 +3,8 @@ extends Node
 
 signal player_hit
 signal enemy_killed
+signal boss_killed
+signal game_over
 
 
 enum POWERUP_TYPE{

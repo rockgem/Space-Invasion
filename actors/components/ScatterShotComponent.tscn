@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c45v5d8ybcp5r"]
+
+[ext_resource type="Script" path="res://actors/components/ScatterShotComponent.gd" id="1_b74sp"]
+
+[node name="ScatterShotComponent" type="Node"]
+script = ExtResource("1_b74sp")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

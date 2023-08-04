@@ -1,6 +1,11 @@
 extends Weapon
 
 
+
+func _ready():
+	fire_rate = 0.1
+
+
 func shoot():
 	for pos in get_children():
 		var i = bullet.instantiate()

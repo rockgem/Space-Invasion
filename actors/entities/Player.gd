@@ -24,13 +24,14 @@ func _physics_process(delta):
 
 
 func change_weapon(weapon_id):
-	var weapon = load("res://actors/etc/%s.tscn" % weapon_id).instantiate()
+	var weapon = load("res://actors/etc/%s.tscn" % weapon_id)
 	
 	if weapon:
+		var i = weapon.instantiate()
 		for child in $WeaponHolder.get_children():
 			child.queue_free()
 		
-		$WeaponHolder.add_child(weapon)
+		$WeaponHolder.add_child(i)
 
 
 func _on_player_hurtbox_area_entered(area):
@@ -40,6 +41,10 @@ func _on_player_hurtbox_area_entered(area):
 	
 	if hp <= 0:
 		life -= 1
+		
+		if life < 0:
+			ManagerGame.game_over.emit()
+			return
 		
 		hp = 5
 	

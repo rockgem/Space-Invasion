@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://biq76fquvbskp"]
+
+[ext_resource type="Script" path="res://actors/entities/Boss_1.gd" id="1_w3edy"]
+[ext_resource type="Texture2D" uid="uid://dlxan7igsthki" path="res://assets/Spaceships/Spaceship 9/spaceship9-1.png" id="2_pin17"]
+[ext_resource type="PackedScene" uid="uid://d274pm1d204py" path="res://actors/components/BossMovementComponent.tscn" id="3_eqsdb"]
+[ext_resource type="PackedScene" uid="uid://bbtxidabe2apu" path="res://actors/components/AimedScatterShot.tscn" id="4_oceld"]
+[ext_resource type="PackedScene" uid="uid://bnpom7finwgte" path="res://actors/components/HurtBoxComponent.tscn" id="5_fj8tw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bkwyv"]
+radius = 33.0
+
+[node name="Boss" type="Node2D" groups=["Enemy"]]
+z_index = 1
+script = ExtResource("1_w3edy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+texture = ExtResource("2_pin17")
+
+[node name="BossMovementComponent" parent="." instance=ExtResource("3_eqsdb")]
+
+[node name="AimedScatterShotComponent" parent="." instance=ExtResource("4_oceld")]
+fire_rate = 1.0
+
+[node name="HurtBoxComponent" parent="." instance=ExtResource("5_fj8tw")]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" parent="HurtBoxComponent" index="0"]
+shape = SubResource("CircleShape2D_bkwyv")
+
+[connection signal="hp_zero" from="HurtBoxComponent" to="." method="_on_hurt_box_component_hp_zero"]
+
+[editable path="HurtBoxComponent"]

@@ -104,6 +104,9 @@ autostart = true
 wait_time = 5.0
 autostart = true
 
+[node name="BossSpawnPoint" type="Node2D" parent="."]
+position = Vector2(189, -54)
+
 [node name="TL" type="Node2D" parent="."]
 position = Vector2(10, 10)
 

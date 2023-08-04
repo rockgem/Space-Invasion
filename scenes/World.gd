@@ -19,9 +19,13 @@ func _ready():
 	ManagerGame.global_world_ref = self
 	
 	ManagerGame.enemy_killed.connect(on_enemy_killed)
+	ManagerGame.boss_killed.connect(on_boss_killed)
 	
 	$CanvasLayer/UI.set_hud()
 	$CanvasLayer/UI.refresh_hud()
+	
+	var boss = load("res://actors/entities/Boss_1.tscn").instantiate()
+	spawn_obj(boss, $BossSpawnPoint.global_position)
 
 
 func _physics_process(delta):
@@ -35,11 +39,6 @@ func cam_shake():
 # g_pos - global_position
 # instance - the object instantiated via instantiate() function
 func spawn_obj(instance, g_pos):
-	instance.global_position = g_pos
-	sort.call_deferred('add_child', instance)
-
-
-func spawn_boss(instance, g_pos):
 	instance.global_position = g_pos
 	sort.call_deferred('add_child', instance)
 
@@ -84,6 +83,16 @@ func on_enemy_killed(g_pos):
 	drop_powerup(g_pos)
 
 
+func on_boss_killed():
+	var enemies = get_tree().get_nodes_in_group('Enemy')
+	
+	for enemy in enemies:
+		var explosion = load("res://actors/objs/Explosion.tscn").instantiate()
+		spawn_obj(explosion, enemy.global_position)
+		
+		enemy.queue_free()
+
+
 func _on_enemy_spawner_timeout():
 	var rand = randi_range(0, 1)
 	
@@ -115,5 +124,4 @@ func _on_wave_timer_timeout():
 		$EnemySpawner.start()
 		
 		var boss = load("res://actors/entities/Boss_1.tscn").instantiate()
-		boss.towards = get_random_pos()
-		spawn_obj(boss, get_random_spawn_point())
+		spawn_obj(boss, $BossSpawnPoint.global_position)
