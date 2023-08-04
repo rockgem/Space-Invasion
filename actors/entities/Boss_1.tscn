@@ -18,6 +18,7 @@ rotation = -1.5708
 texture = ExtResource("2_pin17")
 
 [node name="BossMovementComponent" parent="." instance=ExtResource("3_eqsdb")]
+move_speed = 80.0
 
 [node name="AimedScatterShotComponent" parent="." instance=ExtResource("4_oceld")]
 fire_rate = 1.0

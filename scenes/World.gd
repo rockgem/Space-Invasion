@@ -24,8 +24,8 @@ func _ready():
 	$CanvasLayer/UI.set_hud()
 	$CanvasLayer/UI.refresh_hud()
 	
-	var boss = load("res://actors/entities/Boss_1.tscn").instantiate()
-	spawn_obj(boss, $BossSpawnPoint.global_position)
+#	var boss = load("res://actors/entities/Boss_1.tscn").instantiate()
+#	spawn_obj(boss, $BossSpawnPoint.global_position)
 
 
 func _physics_process(delta):

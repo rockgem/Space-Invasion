@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtesmf7et4c1g"]
+[gd_scene load_steps=7 format=3 uid="uid://dtesmf7et4c1g"]
 
 [ext_resource type="Script" path="res://scenes/UI.gd" id="1_0jye1"]
+[ext_resource type="StyleBox" uid="uid://dy6gc7dnwtixq" path="res://reso/styles/panel_1.tres" id="2_ggi78"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_twv4t"]
 bg_color = Color(0.227451, 0.227451, 0.227451, 1)
@@ -17,6 +18,9 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="LabelSettings" id="LabelSettings_aj6da"]
+font_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_eq5iu"]
 font_size = 10
 
 [node name="UI" type="Control"]
@@ -91,6 +95,7 @@ offset_right = -126.0
 offset_bottom = -38.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_ggi78")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameOverControl/Panel"]
 layout_mode = 1
@@ -103,12 +108,16 @@ offset_right = -10.0
 offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
 [node name="Label" type="Label" parent="GameOverControl/Panel/VBoxContainer"]
 layout_mode = 2
 text = "Game Over!"
+label_settings = SubResource("LabelSettings_eq5iu")
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="GameOverControl/Panel/VBoxContainer"]
+[node name="Menu" type="Button" parent="GameOverControl/Panel/VBoxContainer"]
 layout_mode = 2
 text = "Menu"
+
+[connection signal="pressed" from="GameOverControl/Panel/VBoxContainer/Menu" to="." method="_on_menu_pressed"]

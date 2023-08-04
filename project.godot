@@ -27,6 +27,10 @@ window/size/window_width_override=1140
 window/size/window_height_override=540
 window/stretch/mode="canvas_items"
 
+[gui]
+
+theme/custom="res://reso/styles/new_theme.tres"
+
 [input]
 
 ui_left={

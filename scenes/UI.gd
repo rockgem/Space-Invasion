@@ -5,6 +5,7 @@ extends Control
 func _ready():
 	ManagerGame.player_hit.connect(on_player_hit)
 	ManagerGame.enemy_killed.connect(on_enemy_killed)
+	ManagerGame.boss_killed.connect(on_boss_killed)
 	ManagerGame.game_over.connect(on_game_over)
 
 
@@ -34,6 +35,10 @@ func on_enemy_killed(g_pos):
 	$Score.text = '%s' % ManagerGame.global_world_ref.score
 
 
+func on_boss_killed():
+	pass
+
+
 func on_player_hit():
 	refresh_hud()
 
@@ -42,3 +47,7 @@ func on_game_over():
 	get_tree().paused = true
 	
 	$GameOverControl.show()
+
+
+func _on_menu_pressed():
+	get_tree().change_scene_to_file("res://scenes/Menu.tscn")
