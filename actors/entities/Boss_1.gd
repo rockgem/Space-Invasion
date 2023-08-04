@@ -9,6 +9,6 @@ func _ready():
 
 
 func _on_hurt_box_component_hp_zero():
-	ManagerGame.boss_killed
+	ManagerGame.boss_killed.emit()
 	
 	queue_free()
