@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://biuccuyxq1j5h"]
+[gd_scene load_steps=3 format=3 uid="uid://biuccuyxq1j5h"]
 
 [ext_resource type="AudioStream" uid="uid://binq81yvwdnr5" path="res://sounds/sfx/AlienWeapon4.wav" id="1_rgj6d"]
+[ext_resource type="AudioStream" uid="uid://clfkn7aohftwm" path="res://sounds/sfx/Explosion5.wav" id="2_gw05v"]
 
 [node name="SFX" type="Node"]
 
 [node name="Laser" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_rgj6d")
+
+[node name="Explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_gw05v")
